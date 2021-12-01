@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        * {margin:0; padding:0; box-sizing: border-box; -ms-overflow-style: none;}
+        ::-webkit-scrollbar { display: none; }
+        body {display:flex; justify-content: center; align-items: center; min-height: 100vh; background: #3c3646;}
+        .container{display:grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr }
+        .eyes { position: relative; top:0; left:0; background: turquoise;}
+        .eyes .eye { position:relative; width:30vh; height:30vh; display:block; background: transparent; margin:0 15px; border-radius: 50%;}
+        .eyes .eye:before{
+            content:'';
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            width:9vh; height:9vh;
+            background: cornflowerblue;
+            border-radius: 50%;
+        }
+        /* .eyes .eye:hover{
+            width:9vh; height:18vh;
+            background: cornflowerblue;
+            animation-name: fadeout;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+        .eyes .eye:after{
+            width:9vh; height:18vh;
+            background: cornflowerblue;
+            animation-name: keep;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+        @keyframes fadeout {
+            from {
+                width:18vh;
+                opacity:0%;
+            }
+            50% {
+                width:18vh;
+                opacity:100%;
+            }
+            to {
+                width:18vh;
+                opacity:100%;
+            }
+        }
+        @keyframes keep{
+            from {
+                width:18vh;
+                opacity:0%;
+            }
+            to {
+                width:18vh;
+                opacity:100%;
+            }
+        } */
+    </style>
+</head>
+<body>
+    <button><a href="index.html">another</a></button>
+    <div class="container">
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+    <script>
+    // 모든 eye클래스에 대해
+    // window.onmousemove = function(e) {
+    //     scale = e.clientX - eye의 중심x좌표
+    //     scale = e.clientY - eye의 중심y좌표
+    // }
+
+    document.querySelector('body') 
+    .addEventListener('mousemove', wave)
+    
+    function wave() {
+        var eye = document.querySelectorAll('.eye');
+        var eyes = document.querySelectorAll('.eyes');
+
+        eye.forEach(function(eye){
+            //eye의 x,y좌표 구하기 (중심좌표)
+            let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+            let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+            
+            //마우스의 좌표와 eye의 중심좌표의 사이 거리 구하기
+            var dis_x = event.pageX - x;
+            var dis_y = event.pageY - y;
+
+            result = Math.sqrt(Math.abs(dis_x*dis_x) + Math.abs(dis_y*dis_y));
+            console.log(result/250);
+
+            // let scaleX = calc (event.pageX - x);
+            // let scaleY = calc (event.pageY - y);
+
+            // let rot = (radian * (180 / Math.PI) * -1) + 0;
+            eye.style.transform = "scale(" + result/260+","+result/260 + ")";
+        })
+
+
+        // function randomBH(min, max) {
+        //     min = Math.ceil(min);
+        //     max = Math.floor(max);
+        //     return Math.floor(Math.random() * (max - min + 1) + min);
+        // }
+        
+    }
+
+
+
+    // $(".eye").mouseenter(function (){
+    //     let id = null;
+    //     const elem = document.getElementsByClassName("eye"); 
+    //     let scale = 100;
+    //     clearInterval(id);
+    //     id = setInterval(frame, 5);
+    //     function frame() {
+    //         if (scale == 300) {
+    //         clearInterval(id);
+    //         } else {
+    //         scale++; 
+    //         elem.style.width = scale + "px"; 
+    //         elem.style.height = scale + "px"; 
+    //         }
+    //     }
+    // })
+    
+    </script>
+</body>
+
+    
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin:0; padding:0; box-sizing: border-box; -ms-overflow-style: none;}
+        ::-webkit-scrollbar { display: none; }
+        body {display:flex; justify-content: center; align-items: center; min-height: 100vh; background: #3c3646;}
+        .container{display:grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr }
+        .eyes { position: relative; top:0; left:0; background: turquoise;}
+        .eyes .eye { position:relative; width:30vh; height:30vh; display:block; background: transparent; margin:0 15px; border-radius: 50%;}
+        .eyes .eye:before{
+            content:'';
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            width:9vh; height:18vh;
+            background: cornflowerblue;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <button><a href="random_make.html">another</a></button>
+    <div class="container">
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+        <div class="eyes">
+            <div class="eye"></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('body') 
+        .addEventListener('mousemove', eyeball)
+    
+        function eyeball() {
+            var eye = document.querySelectorAll('.eye');
+            var eyes = document.querySelectorAll('.eyes');
+
+            eye.forEach(function(eye){
+                let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+                let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+                let radian = Math.atan2(event.pageX - x, event.pageY - y);
+                let rot = (radian * (180 / Math.PI) * -1) + 0;
+                eye.style.transform = "rotate(" + rot + "deg)";
+                // eye.style.width = randomBH(1,10)+"px";
+                // eye.style.height = "auto";
+                // eye.style.left = Math.random()*screen.availWidth + "px";
+                // eye.style.top = Math.random()*screen.availHeight + "px";
+            })
+
+
+            // function randomBH(min, max) {
+            //     min = Math.ceil(min);
+            //     max = Math.floor(max);
+            //     return Math.floor(Math.random() * (max - min + 1) + min);
+            // }
+            
+        }
+        for (var i=0; i<100; i++){
+            var eye = document.querySelectorAll('.eyes')
+            eyes.style.width = randomBH(10,60)+"px"
+            eyes.style.height = "auto"
+            eyes.style.left = Math.random()*screen.availWidth + "px"
+            eyes.style.top = Math.random()*screen.availHeight + "px"
+            document.body.appendChild(eyes)
+
+            function randomBH(min, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min + 1) + min);
+                }
+        }
+
+        
+        
+
+            
+        
+        
+    </script>
+    <!-- <script type="text/javascript">
+    for (var i=0; i<100; i++){
+        var t = document.createElement("img");
+        t.src = "flower.jpg";
+        t.className = "flower";
+        t.style.width = randomBH(20,80)+"px";
+        t.style.height = "auto";
+        t.style.left = Math.random()*screen.availWidth + "px";
+        // console.log(Math.random()*screen.availWidth);
+        
+        t.style.top = Math.random()*screen.availHeight + "px";
+        document.body.appendChild(t);
+
+    }
+
+        function randomBH(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+    </script> -->
+</body>
+</html>
